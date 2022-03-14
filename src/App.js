@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {Link, Outlet} from 'react-router-dom';
+import ThemeContextProvider from './contexts/ThemeContext';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h1>Template</h1>
+      <div className="centered">
+          <div className="four green ui buttons">
+          <Link to="/" className="ui button">Home</Link>
+          <Link to="/about" className="ui button">About</Link>
+          <Link to="/reviews" className="ui button">Reviews</Link>
+          <Link to="/contactus" className="ui button">Contact Us</Link>
+      </div>
+      <div className="outletContainer">
+      <ThemeContextProvider>
+        <Outlet />
+      </ThemeContextProvider>
+      </div>
+    </div>
+
     </div>
   );
 }
