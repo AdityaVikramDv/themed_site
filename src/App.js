@@ -1,8 +1,13 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import {Link, Outlet} from 'react-router-dom';
 import ThemeContextProvider from './contexts/ThemeContext';
+import {UserContext} from './contexts/userContext';
 
 function App() {
+  const profileInfo = useContext(UserContext);
+  if(!profileInfo.isLoggedIn){
+    return  <div> Please <Link to="/login">login</Link></div>
+  }
   return (
     <div className="container">
       <h1>Template</h1>
